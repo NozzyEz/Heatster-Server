@@ -9,13 +9,18 @@ class Weekday(models.Model):
 
     name = models.CharField(max_length=255)
 
+    object = models.Manager()
+
 
 # Model for the Rooms
 class Room(models.Model):
     class Meta:
         db_table = 'heatster_rooms'
 
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    
+    object = models.Manager()
 
 
 # Model for Valves
@@ -25,6 +30,8 @@ class Valve(models.Model):
 
     room_id = models.IntegerField()
     current_temp = models.FloatField()
+
+    object = models.Manager()
 
 
 # Model for Schedules
@@ -36,6 +43,8 @@ class Schedule(models.Model):
     weekday_id = models.IntegerField()
     temperature = models.CharField(max_length=255)
 
+    object = models.Manager()
+
 
 # Model for Records
 class Record(models.Model):
@@ -46,6 +55,8 @@ class Record(models.Model):
     temperature = models.FloatField()
     time = models.DateTimeField()
 
+    object = models.Manager()
+
 
 # Model for Vacations
 class Vacation(models.Model):
@@ -54,6 +65,8 @@ class Vacation(models.Model):
     
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
+
+    object = models.Manager()
 
 
 # Model for Settings
@@ -65,3 +78,5 @@ class Setting(models.Model):
     sleep_temp = models.IntegerField()
     sleep_start = models.TimeField()
     sleep_end = models.TimeField()
+    
+    object = models.Manager()

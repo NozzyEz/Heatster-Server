@@ -1,7 +1,7 @@
 """ This is the serializers file, these exist to take data from the database models and convet 
 it to JSON, and possibly, if necesarry, perform validations """
 from rest_framework import serializers
-from .models import Weekday, Room, Valve, Schedule, Record, Vacation, Setting
+from heatster.models import Weekday, Room, Valve, Schedule, Record, Vacation, Setting
 
 
 class WeekdaySerializer(serializers.ModelSerializer):
@@ -23,9 +23,9 @@ class RoomSerializer(serializers.ModelSerializer):
             'name'
         ]
 
-        read_only_fields = ['name']
+        read_only_fields = ['room_id']
 
-
+        
 class ValveSerializer(serializers.ModelSerializer):
     class Meta:
         model = Valve
