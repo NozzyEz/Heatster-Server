@@ -10,7 +10,7 @@ from .views import (
 urlpatterns = [
     path('weekdays/<int:id>/', RetrieveWeekdayView.as_view(), name='api-weekdays'),
     path('rooms/', ListRoomView.as_view(), name='api-rooms-list'),
-    path('rooms/<int:room_id>', RudRoomView.as_view(), name='api-room'),
+    path('rooms/<int:id>', RudRoomView.as_view(), name='api-room'),
     path('valves/', ListValveView.as_view(), name='api-valve-list'),
     path('valves/<int:id>', RudValveView.as_view(), name='api-valve'),
     path('schedules/', ListScheduleView.as_view(), name='api-schedules-list'),
