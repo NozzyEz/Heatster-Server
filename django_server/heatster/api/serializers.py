@@ -20,7 +20,9 @@ class RoomSerializer(serializers.ModelSerializer):
         model = Room
         fields = [
             'id',
-            'name'
+            'name',
+            'current_temp',
+            'set_temp'
         ]
 
         read_only_fields = ['room_id']
@@ -32,7 +34,8 @@ class ValveSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'room_id',
-            'current_temp'
+            'current_temp',
+            'set_temp'
         ]
 
 

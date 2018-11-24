@@ -19,6 +19,8 @@ class Room(models.Model):
 
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=255)
+    current_temp = models.FloatField()
+    set_temp = models.FloatField()
     
     object = models.Manager()
 
@@ -30,6 +32,7 @@ class Valve(models.Model):
 
     room_id = models.IntegerField()
     current_temp = models.FloatField()
+    set_temp = models.FloatField()
 
     object = models.Manager()
 
