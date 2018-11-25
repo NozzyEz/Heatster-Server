@@ -19,9 +19,13 @@ this will return a token that can be used to do the HTTP requests that are possi
 ## API calls
 ### list/create views:
 Allows: **GET, POST** requests
+
 rooms/
+
 valves/
+
 schedules/
+
 records/
 
 ```
@@ -44,13 +48,20 @@ request type: GET
 
 ### retrieve, update and destroy views: (where x is the id of the row)
 Allows: **GET, PUT, DESTROY**
+
 weekdays/x/
+
 rooms/x/
+
 valves/x/
+
 schedules/x/
+
 records/x/
+
 vacations/x/
+
 settings/x/
 
 ex.
-http GET http://192.168.0.80:8000/api/rooms/ "Authoriztion: Token <sometokenhere>" 
+http GET http://192.168.0.80:8000/api/rooms/ "Authoriztion: Token *Token goes here*" 
