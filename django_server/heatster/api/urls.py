@@ -1,6 +1,10 @@
 """ This is where API related urls go, so we can point to the REST  """
+from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
+
+from rest_framework.authtoken import views
+
 from .views import (
     RetrieveWeekdayView,
     ListRoomView, ListValveView, ListScheduleView, ListRecordView, 
@@ -8,6 +12,7 @@ from .views import (
 )
 
 urlpatterns = [
+    path('auth/', views.obtain_auth_token, name='api-token-auth'),
     path('weekdays/<int:id>/', RetrieveWeekdayView.as_view(), name='api-weekdays'),
     path('rooms/', ListRoomView.as_view(), name='api-rooms-list'),
     path('rooms/<int:id>', RudRoomView.as_view(), name='api-room'),
