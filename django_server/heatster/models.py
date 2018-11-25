@@ -45,7 +45,7 @@ class Schedule(models.Model):
     room_id = models.IntegerField()
     weekday_id = models.IntegerField()
     hour = models.IntegerField()
-    temperature = models.CharField(max_length=255)
+    temperature = models.FloatField()
 
     object = models.Manager()
 

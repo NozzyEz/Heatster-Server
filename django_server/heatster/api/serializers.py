@@ -26,8 +26,7 @@ class RoomSerializer(serializers.ModelSerializer):
             'set_temp'
         ]
 
-        read_only_fields = ['room_id']
-
+        
         
 class ValveSerializer(serializers.ModelSerializer):
     class Meta:
@@ -50,8 +49,6 @@ class ScheduleSerializer(serializers.ModelSerializer):
             'hour',
             'temperature'
         ]
-
-        read_only_fields = ['room_id']
 
 
 class RecordSerializer(serializers.ModelSerializer):
