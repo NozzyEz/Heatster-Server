@@ -21,30 +21,46 @@ this will return a token that can be used to do the HTTP requests that are possi
 Allows: **GET, POST** requests
 
 rooms/
+```
+request type: GET
+[    
+    {
+        "id": 1, (Int)
+        "name" : "name_of_room", (String)
+        "current_temp": 0.0, (Float)
+        "set_temp: 0.0 (Float)
+    },
+    {
+        "id": 2, (Int)
+        "name" : "name_of_room", (String)
+        "current_temp": 0.0, (Float)
+        "set_temp: 0.0 (Float)
+    }
+]
+```
 
 valves/
+```
+[    
+    {
+        "id": 1, (Int)
+        "room_id" : 1, (Int)
+        "current_temp": 0.0, (Float)
+        "set_temp: 0.0 (Float)
+    },
+    {
+        "id": 2, (Int)
+        "room_id" : 1, (Int)
+        "current_temp": 0.0, (Float)
+        "set_temp: 0.0 (Float)
+    }
+]
+```
 
 schedules/
 
 records/
 
-```
-request type: GET
-[    
-    {
-        "current_temp": 0.0,
-        "id": 1,
-        "name" : "name_of_room",
-        "set_temp: 0.0
-    },
-    {
-        "current_temp": 0.0,
-        "id": 2,
-        "name" : "name_of_room",
-        "set_temp: 0.0
-    }
-]
-```
 
 ### retrieve, update and destroy views: (where x is the id of the row)
 Allows: **GET, PUT, DESTROY**
@@ -64,4 +80,4 @@ vacations/x/
 settings/x/
 
 ex.
-http GET http://192.168.0.80:8000/api/rooms/ "Authoriztion: Token *Token goes here*" 
+http GET http://192.168.0.80:8000/api/rooms/ "Authorization: Token *Token goes here*" 
