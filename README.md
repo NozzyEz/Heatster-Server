@@ -124,11 +124,11 @@ records/
 ### retrieve, update and destroy views: (where x is the id of the row)
 Allows: **GET, PUT, DESTROY**
 
-weekdays/x/
+weekdays/x/ (This shouldn't be a RUD view, we only want to be able to read these values, not update or destroy
 ```
 {
     "id": 1 (Int)
-    "name": "Monday" (String)
+    "name": "Monday" (String *read-only field*)
 }
 ```
 
