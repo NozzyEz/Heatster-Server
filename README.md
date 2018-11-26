@@ -9,7 +9,7 @@ This is the project for our django webserver for the Heatster solution.
 ```
 To create a local copy, you need to Install Python 3 and PostgreSQL first of all.
 It is strongly advised to use a virtual enviornment.
-Once in the virtual enviornment you need to install the following packages with pip: django, djangorestframework
+Once in the virtual enviornment you need to install the following packages with pip: django, djangorestframework, psycopg2
 Inside of your installed PostgreSQL server, you need to create a database and a user with the following information:
 Database name:  p3_server
 user:           p3_server
