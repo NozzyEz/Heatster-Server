@@ -8,7 +8,7 @@ This is the project for our django webserver for the Heatster solution.
 ## Creating a local copy
 ```
 To create a local copy, you need to Install Python 3 and PostgreSQL first of all.
-It is strongly advised to use a virtual enviornment
+It is strongly advised to use a virtual enviornment.
 Once in the virtual enviornment you need to install the following packages with pip: django, djangorestframework
 Inside of your installed PostgreSQL server, you need to create a database and a user with the following information:
 Database name:  p3_server
@@ -65,6 +65,7 @@ request type: GET
 
 valves/
 ```
+request type: GET
 [    
     {
         "id": 1, (Int)
@@ -82,26 +83,115 @@ valves/
 ```
 
 schedules/
-
+```
+request type: GET
+[
+    {
+        "id": 1 (Int),
+        "room_id": 1 (Int),
+        "weekday_id": 1 (Int),
+        "hour": 1 (Int),
+        "temperature": 0.0 (Float)
+    }
+    {
+        "id": 2 (Int),
+        "room_id": 1 (Int),
+        "weekday_id": 1 (Int),
+        "hour": 2 (Int),
+        "temperature": 0.0 (Float)
+    }
+]
+```
 records/
+```
+[
+    {
+        "id": 1 (Int),
+        "room_id": 1 (Int),
+        "temperature": 21.5 (Float)
+        "time": 2018-11-07 18:00:00.327+01 (Timestamp with timezone),
+    }
+    {
+        "id": 2 (Int),
+        "room_id": 2 (Int),
+        "temperature": 17.5 (Float)
+        "time": 2018-11-07 18:00:00.327+01 (Timestamp with timezone),
+    }
+]
+```
 
 
 ### retrieve, update and destroy views: (where x is the id of the row)
 Allows: **GET, PUT, DESTROY**
 
 weekdays/x/
+```
+{
+    "id": 1 (Int)
+    "name": "Monday" (String)
+}
+```
 
 rooms/x/
+```
+{
+    "id": 1, (Int)
+    "name" : "name_of_room", (String)
+    "current_temp": 0.0, (Float)
+    "set_temp: 0.0 (Float)
+}
+```
 
 valves/x/
+```
+{
+    "id": 1, (Int)
+    "room_id" : 1, (Int)
+    "current_temp": 0.0, (Float)
+    "set_temp: 0.0 (Float)
+}
+```
 
 schedules/x/
+```
+{
+    "id": 1 (Int),
+    "room_id": 1 (Int),
+    "weekday_id": 1 (Int),
+    "hour": 1 (Int),
+    "temperature": 0.0 (Float)
+}
+```
 
 records/x/
+```
+{
+    "id": 1 (Int),
+    "room_id": 1 (Int),
+    "temperature": 21.5 (Float)
+    "time": 2018-11-07 18:00:00.327+01 (Timestamp with time zone),
+}
+```
 
 vacations/x/
+```
+{
+    "id": 1 (Int),
+    "start_date": 2018-11-07 18:00:00.327+01 (Timestamp with time zone),
+    "end_date": 2018-11-14 18:00:00.327+01 (Timestamp with time zone)
+}
+```
 
 settings/x/
+```
+{
+    "id": 1 (Int),
+    "vacation_temp": 12.0 (Float),
+    "sleep_temp": 17.0 (Float),
+    "sleep_start": 22:30:00+8 (Time with time zone),
+    "sleep_end": 06:30:00+8 (Time with time zone)
+}
+```
 
 ex.
 ```

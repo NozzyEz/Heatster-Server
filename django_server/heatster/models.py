@@ -78,8 +78,8 @@ class Setting(models.Model):
     class Meta:
         db_table = 'heatster_settings'
 
-    vacation_temp = models.IntegerField()
-    sleep_temp = models.IntegerField()
+    vacation_temp = models.FloatField()
+    sleep_temp = models.FloatField()
     sleep_start = models.TimeField()
     sleep_end = models.TimeField()
     
