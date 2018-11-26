@@ -3,14 +3,17 @@
 
 This is the project for our django webserver for the Heatster solution.
 
-*There is no frontend, other than for the REST api, which can be used instead of Insomnia or a commandline/terminal tool.*
+*There is no frontend, other than for the REST api, which can be used instead of Insomnia or a 
+commandline/terminal tool.*
 
 ## Creating a local copy
 ```
 To create a local copy, you need to Install Python 3 and PostgreSQL first of all.
 It is strongly advised to use a virtual enviornment.
-Once in the virtual enviornment you need to install the following packages with pip: django, djangorestframework
-Inside of your installed PostgreSQL server, you need to create a database and a user with the following information:
+Once in the virtual enviornment you need to install the following packages with pip: django, 
+djangorestframework
+Inside of your installed PostgreSQL server, you need to create a database and a user with the 
+following information:
 Database name:  p3_server
 user:           p3_server
 password:       Testing321
@@ -38,7 +41,8 @@ ex.
 http POST http://192.168.0.80:8000/api/auth/ username="user" password="randomPassword"
 ```
 
-this will return a token that can be used to do the HTTP requests that are possible within our API, everything needs authorization.
+this will return a token that can be used to do the HTTP requests that are possible within our API,
+everything needs authorization.
 
 ## API calls
 ### list/create views:
@@ -102,6 +106,12 @@ request type: GET
     }
 ]
 ```
+In schedules you can also search for specific weekday by typing the following urL:
+```
+(replace x with a number between 1 and 7)
+192.168.0.80/api/schedules?weekday=x
+```
+
 records/
 ```
 [

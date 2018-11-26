@@ -71,7 +71,11 @@ class ListScheduleView(mixins.CreateModelMixin, generics.ListAPIView):
         return self.create(request, *args, **kwargs)
 
     def get_queryset(self):
-        return Schedule.object.all()
+        queryset = Schedule.object.all()
+        weekday_id = self.request.query_params.get('weekday', None)
+        if weekday_id is not None:
+            queryset = queryset.filter(weekday_id=weekday_id)
+        return queryset
 
 
 class RudScheduleView(generics.RetrieveUpdateDestroyAPIView):
