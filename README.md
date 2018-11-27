@@ -8,19 +8,25 @@ commandline/terminal tool.*
 
 ## Creating a local copy
 ```
-To create a local copy, you need to Install Python 3 and PostgreSQL first of all.
-It is strongly advised to use a virtual enviornment.
-<<<<<<< HEAD
-Once in the virtual enviornment you need to install the following packages with pip: django, 
-djangorestframework
-Inside of your installed PostgreSQL server, you need to create a database and a user with the 
+Before installation, remove old installations of Python 2.
+To create a local copy, you need to Install Python 3 and PostgreSQL - Make sure to set the PATH when installing Python
+you need to install the following packages with pip by using the terminal:
+pip install django, djangorestframework, psycopg2
+Once PostgrSQL is installed find pgAdmin 4, open it, and then you need to create a user and then a database with the 
 following information:
-=======
-Once in the virtual enviornment you need to install the following packages with pip: django, djangorestframework, psycopg2
-Inside of your installed PostgreSQL server, you need to create a database and a user with the following information:
 Database name:  p3_server
 user:           p3_server
 password:       Testing321
+
+afterwards navigate to where you downloaded this project with the terminal, then write:
+python manage.py createsuperuser 
+(username: Heatster, password: Testing321)
+python manage.py makemigrations
+if no migrations are made, make sure to delete all migration folders in the project and write the command again
+once you have made migrations, run:
+python manage.py migrate
+once complete, you can start the server with:
+python manage.py runserver
 ```
 
 ## Connecting to the Raspberry Pi
