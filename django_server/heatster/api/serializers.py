@@ -46,7 +46,6 @@ class ScheduleSerializer(serializers.ModelSerializer):
             'id',
             'room_id',
             'weekday_id',
-            'hour',
             'temperature'
         ]
 
