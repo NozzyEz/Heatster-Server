@@ -48,6 +48,9 @@ class ListValveView(mixins.CreateModelMixin, generics.ListAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+    # def perform_create(self, serializer):
+    #     serializer.save()
 
     def get_queryset(self):
         return Valve.object.all()    
