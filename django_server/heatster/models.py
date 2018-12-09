@@ -9,6 +9,9 @@ class Weekday(models.Model):
 
     name = models.CharField(max_length=255)
 
+    def __str__(self):
+        return '{}'.format(self.name)
+
     object = models.Manager()
 
 
@@ -41,8 +44,8 @@ class Schedule(models.Model):
     class Meta:
         db_table = 'heatster_schedules'
 
-    room_id = models.IntegerField()
-    weekday_id = models.IntegerField()
+    room = models.ForeignKey(Room, related_name='rooms', on_delete=models.CASCADE)
+    weekday = models.ForeignKey(Weekday, related_name='weekday', on_delete=models.CASCADE)
     temperature = models.CharField(max_length=255)
 
     object = models.Manager()

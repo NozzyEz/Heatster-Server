@@ -1,4 +1,4 @@
-""" This is the serializers file, these exist to take data from the database models and convet 
+""" This is the serializers file, these exist to take data from the database models and convert 
 it to JSON, and possibly, if necesarry, perform validations """
 from rest_framework import serializers
 from heatster.models import (Record, Room, Schedule, Setting, Vacation, Valve,
@@ -29,12 +29,10 @@ class RoomSerializer(serializers.ModelSerializer):
         
         
 class ValveSerializer(serializers.ModelSerializer):
-    # room_id = serializers.PrimaryKeyRelatedField(
-    #     many=False,
-    #     queryset=Room.object.all()
-    #     )
-    
+    ''' Valve serializer which is used to validate and make sure that information is
+    presented in the correct way inside of the JSON object being returned''' 
     class Meta:
+        # Specify the model to use and the fields to expose to the HTTP request
         model = Valve
         fields = [
             'id',
@@ -42,19 +40,19 @@ class ValveSerializer(serializers.ModelSerializer):
             'room'
         ]
         
+        # By specifying a depth we expose any relational objects in the JSON object
         depth=1
-        
-        # def create(self, validated_data):
-        #     return Valve.object.create(**validated_data)
 
 
 class ScheduleSerializer(serializers.ModelSerializer):
+    weekday = serializers.SlugRelatedField(queryset=Weekday.object.all(), slug_field='name')
+
     class Meta:
         model = Schedule
         fields = [
             'id',
-            'room_id',
-            'weekday_id',
+            'room',
+            'weekday',
             'temperature'
         ]
 
