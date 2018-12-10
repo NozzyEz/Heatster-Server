@@ -118,7 +118,7 @@ class ListVacationView(mixins.CreateModelMixin, generics.ListAPIView):
         return self.create(request, *args, **kwargs)
 
     def get_queryset(self):
-        return Record.object.all()
+        return Vacation.object.all()
 
 
 class RudVacationView(generics.RetrieveUpdateDestroyAPIView):
