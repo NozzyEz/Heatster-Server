@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>Python</ID>
+  <OriginalElement>#C:/Users/Nozzy/Dropbox/PycharmProjects/P3_server/django_server/heatster/models.py</OriginalElement>
+  <nodes>
+    <node x="1160.6011764705881" y="381.0">django_server.heatster.models.Vacation</node>
+    <node x="904.5" y="559.5">django.db.models.base.Model</node>
+    <node x="886.5" y="-1.0">django_server.heatster.models.Room</node>
+    <node x="619.6188235294118" y="351.93882352941176">django_server.heatster.models.Record</node>
+    <node x="888.0" y="810.0">django_server.heatster.models.Valve</node>
+    <node x="468.46588235294115" y="568.7811764705882">django_server.heatster.models.Schedule</node>
+    <node x="1163.5" y="559.0">django_server.heatster.models.Setting</node>
+    <node x="632.3482352941176" y="192.0">django_server.heatster.models.Weekday</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="django_server.heatster.models.Room" target="django.db.models.base.Model">
+      <point x="0.0" y="81.0" />
+      <point x="0.0" y="-80.5" />
+    </edge>
+    <edge source="django_server.heatster.models.Valve" target="django.db.models.base.Model">
+      <point x="0.0" y="-70.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="django_server.heatster.models.Vacation" target="django.db.models.base.Model">
+      <point x="120.5" y="-0.0" />
+      <point x="921.2188235294118" y="438.7811764705882" />
+      <point x="-80.0" y="-80.5" />
+    </edge>
+    <edge source="django_server.heatster.models.Schedule" target="django.db.models.base.Model">
+      <point x="122.0" y="-0.0" />
+      <point x="-95.5" y="-0.0" />
+    </edge>
+    <edge source="django_server.heatster.models.Weekday" target="django.db.models.base.Model">
+      <point x="122.0" y="-0.0" />
+      <point x="960.0" y="240.0" />
+      <point x="-40.0" y="-80.5" />
+    </edge>
+    <edge source="django_server.heatster.models.Record" target="django.db.models.base.Model">
+      <point x="0.0" y="70.0" />
+      <point x="735.6188235294117" y="598.7811764705882" />
+      <point x="-95.5" y="-40.0" />
+    </edge>
+    <edge source="django_server.heatster.models.Setting" target="django.db.models.base.Model">
+      <point x="-116.5" y="-0.0" />
+      <point x="95.5" y="-0.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.8753861997940268" x="935.0" y="473.35764705882355" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+

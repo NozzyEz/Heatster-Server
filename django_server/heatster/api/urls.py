@@ -7,7 +7,7 @@ from rest_framework.authtoken import views
 
 from .views import (
     RetrieveWeekdayView,
-    ListRoomView, ListValveView, ListScheduleView, ListRecordView, 
+    ListRoomView, ListValveView, ListScheduleView, ListRecordView, ListVacationView,
     RudRoomView, RudValveView, RudScheduleView, RudVacationView, RudSettingView
 )
 
@@ -21,6 +21,7 @@ urlpatterns = [
     path('schedules/', ListScheduleView.as_view(), name='api-schedules-list'),
     path('schedules/<int:id>', RudScheduleView.as_view(), name='api-schedules'),
     path('records/', ListRecordView.as_view(), name='api-records'),
+    path('vacations/', ListVacationView.as_view(), name='api-vacation'),
     path('vacations/<int:id>', RudVacationView.as_view(), name='api-vacation'),
     path('settings/<int:id>', RudSettingView.as_view(), name='api-settings')
 ]
