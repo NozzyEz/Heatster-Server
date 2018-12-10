@@ -21,7 +21,7 @@ class Room(models.Model):
     name = models.CharField(max_length=255)
     current_temp = models.FloatField()
     set_temp = models.FloatField()
-    
+        
     object = models.Manager()
 
 
@@ -30,10 +30,9 @@ class Valve(models.Model):
     class Meta:
         db_table = 'heatster_valves'
 
-    room_id = models.IntegerField()
+    room = models.ForeignKey(Room, related_name='room', on_delete=models.CASCADE)
     current_temp = models.FloatField()
-    set_temp = models.FloatField()
-
+    
     object = models.Manager()
 
 

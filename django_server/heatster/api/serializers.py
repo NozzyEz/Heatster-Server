@@ -23,20 +23,29 @@ class RoomSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'current_temp',
-            'set_temp'
+            'set_temp',
         ]
 
         
         
 class ValveSerializer(serializers.ModelSerializer):
+    # room_id = serializers.PrimaryKeyRelatedField(
+    #     many=False,
+    #     queryset=Room.object.all()
+    #     )
+    
     class Meta:
         model = Valve
         fields = [
             'id',
-            'room_id',
             'current_temp',
-            'set_temp'
+            'room'
         ]
+        
+        depth=1
+        
+        # def create(self, validated_data):
+        #     return Valve.object.create(**validated_data)
 
 
 class ScheduleSerializer(serializers.ModelSerializer):

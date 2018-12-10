@@ -48,6 +48,9 @@ class ListValveView(mixins.CreateModelMixin, generics.ListAPIView):
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
+    
+    # def perform_create(self, serializer):
+    #     serializer.save()
 
     def get_queryset(self):
         return Valve.object.all()    
@@ -71,11 +74,16 @@ class ListScheduleView(mixins.CreateModelMixin, generics.ListAPIView):
         return self.create(request, *args, **kwargs)
 
     def get_queryset(self):
-        # We use a custom get queyset method as to allow searching functionality
+        # Since we use custom queryset throughout our views, we are able to facilitate searching 
+        # which we do here by first including all schedule object in the query set
         queryset = Schedule.object.all()
+        # Then look for a weekday id in the url
         weekday_id = self.request.query_params.get('weekday', None)
+        # If there is a parameter in the url
         if weekday_id is not None:
+            # Filter it out the rest of the objects that don't match
             queryset = queryset.filter(weekday_id=weekday_id)
+        # Before returning the query set
         return queryset
 
 
