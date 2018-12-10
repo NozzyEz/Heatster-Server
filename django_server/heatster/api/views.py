@@ -101,6 +101,18 @@ class ListRecordView(mixins.CreateModelMixin, generics.ListAPIView):
         return Record.object.all()
 
 
+class ListVacationView(mixins.CreateModelMixin, generics.ListAPIView):
+    """ Get a list of vacations """
+    lookup_field = 'id'
+    serializer_class = VacationSerializer
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return Record.object.all()
+
+
 class RudVacationView(generics.RetrieveUpdateDestroyAPIView):
     """ Set a vacation start and end time """
     lookup_field = 'id'
