@@ -24,9 +24,9 @@ class RoomSerializer(serializers.ModelSerializer):
             'name',
             'current_temp',
             'set_temp',
+            'valve'
         ]
 
-        
         
 class ValveSerializer(serializers.ModelSerializer):
     ''' Valve serializer which is used to validate and make sure that information is
@@ -39,10 +39,14 @@ class ValveSerializer(serializers.ModelSerializer):
             'current_temp',
             'room'
         ]
-        
-        # By specifying a depth we expose any relational objects in the JSON object
-        depth=1
-
+    
+    # this method is used so that we only need the room_id when we POST or PATCH a valve,
+    # but get the whole object when doing a GET
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['room'] = RoomSerializer(Room.object.get(id=data['room'])).data
+        return data
+                
 
 class ScheduleSerializer(serializers.ModelSerializer):
     weekday = serializers.SlugRelatedField(queryset=Weekday.object.all(), slug_field='name')

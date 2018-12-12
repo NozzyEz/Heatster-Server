@@ -24,6 +24,7 @@ class Room(models.Model):
     name = models.CharField(max_length=255)
     current_temp = models.FloatField()
     set_temp = models.FloatField()
+    valve = models.ManyToManyField('Valve', related_name='+')
         
     object = models.Manager()
 
@@ -37,6 +38,9 @@ class Valve(models.Model):
     current_temp = models.FloatField()
     
     object = models.Manager()
+
+    def __str__(self):
+        return '{}'.format(self.id)
 
 
 # Model for Schedules
