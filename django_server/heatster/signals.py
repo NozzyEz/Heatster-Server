@@ -37,7 +37,7 @@ def set_room_temp(sender, instance, **kwargs):
     # Get the current time and weekday from the server
     current_hour = dt.datetime.now().hour
     current_day = dt.datetime.today().weekday() + 1
-    
+
     # Find the corresponding schedule for the room and weekday
     current_schedule = Schedule.object.filter(room_id=instance.room.id, weekday_id=current_day)
 
@@ -45,7 +45,7 @@ def set_room_temp(sender, instance, **kwargs):
     string_object = current_schedule.values_list('temperature', flat=True)
     temp_string = string_object[0]
     temperatures = temp_string.split(";")
-        
+
     # Use the current hour of the time to get the proper index of the list where the temperature is
     room_set_temp = temperatures[current_hour]
     
