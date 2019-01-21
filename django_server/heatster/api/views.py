@@ -130,6 +130,18 @@ class RudVacationView(generics.RetrieveUpdateDestroyAPIView):
         return Vacation.object.all()
 
 
+class ListSettingView(mixins.CreateModelMixin, generics.ListAPIView):
+    """ Get a list of vacations """
+    lookup_field = 'id'
+    serializer_class = SettingSerializer
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return Setting.object.all()
+
+
 class RudSettingView(generics.RetrieveUpdateDestroyAPIView):
     """ Overall settings for the system, custom temperatures for vacation and sleep and control 
     start and end time for sleep """
