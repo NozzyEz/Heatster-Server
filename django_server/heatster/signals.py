@@ -1,3 +1,4 @@
+import datetime as dt
 from django.dispatch import receiver
 from django.db.models.signals import post_save
 from .models import Valve, Room
@@ -27,3 +28,19 @@ def room_temp_handler(sender, instance, **kwargs):
     for room in Room.object.filter(id=instance.room.id):
         room.current_temp = room_temp
         room.save()
+
+@receiver(post_save, sender=Valve)
+def set_room_temp(sender, instance, **kwargs):
+    # Get the current time and weekday from the server
+    current_hour = dt.datetime.now().hour
+    print(current_hour)
+    # Get the current room id
+
+    # Find the corresponding schedule for the room and weekday
+
+    # Extract the temperature string and store it as a list
+
+    # Use the current hour of the time to get the proper index of the list where the temperature is
+
+    # Write the temp to the room's set_temp
+
