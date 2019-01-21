@@ -33,7 +33,8 @@ def room_temp_handler(sender, instance, **kwargs):
 def set_room_temp(sender, instance, **kwargs):
     # Get the current time and weekday from the server
     current_hour = dt.datetime.now().hour
-    print(current_hour)
+    current_day = dt.datetime.today().weekday
+    print("The hour is {} on the {}st day of the week".format(current_hour, current_day))
     # Get the current room id
 
     # Find the corresponding schedule for the room and weekday
